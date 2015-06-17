@@ -1,6 +1,5 @@
 package io.realm.robolectric.example.presenter;
 
-
 import io.realm.robolectric.example.model.User;
 
 /**
@@ -8,8 +7,8 @@ import io.realm.robolectric.example.model.User;
  */
 public class MainPresenter {
 
-    User user;
-    View view;
+    private User user;
+    private View view;
 
     public MainPresenter(View view) {
         this.view = view;

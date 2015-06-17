@@ -8,6 +8,7 @@ import org.robolectric.annotation.Config;
 
 import io.realm.robolectric.example.BuildConfig;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 /**
@@ -28,5 +29,36 @@ public class UserTest {
     @Test
     public void notNull() {
         assertNotNull(user);
+    }
+
+    @Test
+    public void fullNameShouldUpdate() {
+        user.setFullName("Leonardo");
+        assertEquals(user.getFullName(), "Leonardo");
+    }
+
+    @Test
+    public void emailShouldUpdate() {
+        user.setEmail("contact@thefinestartist.com");
+        assertEquals(user.getEmail(), "contact@thefinestartist.com");
+    }
+
+    @Test
+    public void fullNameShouldUpdateToString() {
+        user.setFullName("Leonardo");
+        assertEquals(user.toString(), "FullName : Leonardo\nEmail : null");
+    }
+
+    @Test
+    public void emailShouldUpdateToString() {
+        user.setEmail("contact@thefinestartist.com");
+        assertEquals(user.toString(), "FullName : null\nEmail : contact@thefinestartist.com");
+    }
+
+    @Test
+    public void fullNameAndEmailShouldUpdateToString() {
+        user.setFullName("Leonardo");
+        user.setEmail("contact@thefinestartist.com");
+        assertEquals(user.toString(), "FullName : Leonardo\nEmail : contact@thefinestartist.com");
     }
 }
