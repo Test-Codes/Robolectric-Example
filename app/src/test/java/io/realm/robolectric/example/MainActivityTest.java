@@ -10,8 +10,8 @@ import org.robolectric.Robolectric;
 import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.annotation.Config;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by TheFinestArtist on 6/16/15.
@@ -42,19 +42,20 @@ public class MainActivityTest {
     @Test
     public void fullNameShouldUpdateUserInfoTextView() {
         fullName.setText("Leonardo");
-        assertEquals(userInfoTextView.getText().toString(), "FullName : Leonardo\nEmail : null");
+        assertTrue(userInfoTextView.getText().toString().contains("Leonardo"));
     }
 
     @Test
     public void emailShouldUpdateUserInfoTextView() {
         email.setText("contact@thefinestartist.com");
-        assertEquals(userInfoTextView.getText().toString(), "FullName : null\nEmail : contact@thefinestartist.com");
+        assertTrue(userInfoTextView.getText().toString().contains("contact@thefinestartist.com"));
     }
 
     @Test
     public void fullNameAndEmailShouldUpdateUserInfoTextView() {
         fullName.setText("Leonardo");
         email.setText("contact@thefinestartist.com");
-        assertEquals(userInfoTextView.getText().toString(), "FullName : Leonardo\nEmail : contact@thefinestartist.com");
+        assertTrue(userInfoTextView.getText().toString().contains("Leonardo"));
+        assertTrue(userInfoTextView.getText().toString().contains("contact@thefinestartist.com"));
     }
 }
